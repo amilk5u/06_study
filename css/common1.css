@@ -1,0 +1,69 @@
+html {height: 100%;}
+body{
+  margin:0 auto;
+  padding:0;
+  border:0;
+  width: 100%;
+  height: 100%;
+}
+#wrap{
+  width: 100%;
+  height: 100%;
+  background-color: #999;
+  overflow: hidden;
+}
+.indicator{
+  margin:0 auto;
+  position:absolute;
+  z-index: 9;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  opacity: 1;
+}
+#slider{width:100%; height:100%;}
+
+.img_wrap>div{
+  width:100%;
+  height:100%;
+  position:absolute;
+  opacity:0;
+  font-size:100px;
+  text-align: center;
+}
+.img_wrap>div{
+  line-height: 8;
+}
+
+.img_wrap>div:nth-child(odd){background-color: #e23469;}
+.img_wrap>div:nth-child(even){background-color: #c2761d;}
+
+.indicator>div{
+  float:left;
+  width:10px;
+  height:10px;
+  border-radius:10px;
+  background-color: #fff;
+  margin-left:10px;
+  cursor: pointer;
+}
+.indicator>div:first-child{margin-left:0;}
+
+.navigation div{
+  position: absolute;
+  top:43%;
+  width:50px;
+  height: 50px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.navigation .prev{
+  left:20px;
+}
+.navigation .next{
+  right:20px;
+}
+#slider .img_wrap>div:first-child{opacity:1;}
+/* 인디케이터 active */
+.indicator>div.on{background-color: #333;}
+

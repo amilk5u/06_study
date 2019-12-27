@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+	<title>슬라이더 만들기</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+	html {height: 100%;}
+	body{
+		background-color: #ccc;
+		margin:0 auto;
+		padding:0;
+		border:0;
+		width: 100%;
+		height: 100%;
+	}
+	#wrap{
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	#wrap div{ width:100%; height:100%; }
+	#wrap div:nth-child(odd){background-color: #187c82;}
+
+
+</style>
+</head>
+<body>
+	<!-- wrap -->
+	<div id="wrap">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+</body>
+<script>
+
+
+
+
+
+	var scrollEvent = false;
+	var count = 0;
+
+	$('html,body').on('mousewheel',function(e){
+		e.preventDefault();
+	});
+
+
+	//
+	// var scrollEvent = false;
+	// var count = 0;
+	//
+	// $('html,body').on('mousewheel', function(e) {
+	//
+	// 	e.preventDefault();
+	// 	var scroll_event = e.originalEvent.wheelDelta;
+	// 	var wrap_height = $('#wrap').height;
+	//
+	// 	if( scroll_event > 1 && scrollEvent == false && count >=1 ){
+	// 		console.log(count);
+	// 		scrollEvent = true;
+	// 		count--;
+	// 		$('html,body').stop().animate({scrollTop:sb*count},{
+	// 			duration:300, complete:function(){
+	// 				scrollEvent = false;
+	// 			}
+	// 		});
+	// 	}else if( scroll_event < 1 && scrollEvent == false && count < 3 ){
+	// 		console.log(count);
+	// 		scrollEvent = true;
+	// 		count++;
+	// 		$('html,body').stop().animate({ scrollTop: sb*count },
+	// 			{duration:300, complete:function(){
+	// 				scrollEvent = false;
+	// 			}
+	// 		});
+	// 	}
+
+
+  //   if (e.originalEvent.wheelDelta >= 0) {
+  //       console.log('스크롤 올림');
+  //   } else {
+  //       console.log('스크롤 내림');
+  //   }
+	// 	console.log(e.originalEvent.wheelDelta);
+	// });
+
+
+
+
+
+</script>
+</html>
