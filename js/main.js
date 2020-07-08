@@ -92,7 +92,6 @@ function studySliderFade() {
             }
         }
     });
-
     //4
     $indicator.find("button").click(function () {
         var _this = $(this);

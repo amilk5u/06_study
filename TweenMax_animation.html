@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TweenMax_animation</title>
+
+    <link rel="stylesheet" href="./css/TweenMax_ani.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./js/TweenMax.min.js"></script>
+</head>
+<body>
+<div id="wrap">
+    <h1>TweenMax animation</h1>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</div>
+<script>
+
+    function Tween() {
+
+        var $box = $('.box1');
+
+
+        // 오른쪽으로 200px / 2초 동안
+        TweenMax.to($box, 2, {x: 200});
+        TweenMax.to($box, 1, {
+            delay:2,
+            x: 100,
+            ease: Linear.easeNone,
+        });
+        TweenMax.to($box, 3, {delay:4, backgroundColor:'blue',});
+        TweenMax.to($box, 3, {
+            delay:7,
+            x:200,
+            rotation:360,
+        });
+
+        TweenMax.to($box, 2, {
+            delay:10,
+            y:200,
+        });
+        TweenMax.to($box, 2, {
+            delay:12,
+            y:100,
+            rotation:-180,
+        });
+        TweenMax.to($box, 1, {
+            delay:14,
+            y:0,
+            rotation:180,
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    Tween();
+
+</script>
+</body>
+</html>

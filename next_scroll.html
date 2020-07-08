@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
+	<title>슬라이더 만들기</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<link rel="stylesheet" href="css/next_scroll.css">
+
+</head>
+<body>
+	<div id="wrap">
+		<div class="container">
+			<div><img src="img/logo.png" alt=""></div>
+			<div><img src="img/iu.jpg" alt=""></div>
+			<div><img src="img/kang.jpg" alt=""></div>
+			<div><img src="img/logo.png" alt=""></div>
+			<div><img src="img/iu.jpg" alt=""></div>
+			<div><img src="img/kang.jpg" alt=""></div>
+			<div><img src="img/kang.jpg" alt=""></div>
+			<div><img src="img/123.png" alt=""></div>
+			<div><img src="img/iu.jpg" alt=""></div>
+			<div><img src="img/kang.jpg" alt=""></div>
+		</div>
+	</div>
+</body>
+<script>
+
+/*	function scrollAction01() {
+		if (event.wheelDelta <= -120) {
+			window.scrollBy(100, 0);
+		} else if (event.wheelDelta >= 120) {
+			window.scrollBy(-100, 0);
+		}
+	}*/
+
+	// css
+	// 1. div 를 float:left 로 정렬한다
+	// 2. container 의 넓이를 max-content 사용하여 자식의 넓이값을 그대로 가져간다
+
+	// script
+	// 3. container 의 넓이값을 height 값에 대입한다
+	// 4. 스크롤 이벤트를 사용하여 현재 스크롤한 값을 container 의 x 값에 대입하여 가로로 움직이게 한다
+	// 5. container 의 넓이 - 윈도우넓이 - 윈도우높이 값을 뺀 나머지의 값을 조정한다
+
+	function scrollAction02 (){
+
+		var $html = $("html"),
+			$wrap = $("#wrap"),
+			$container = $wrap.find(".container"),
+			$div = $container.find("div");
+
+		var $containerW = $container.width(),
+			$doW = $(document).width(),
+			$winW = $(window).width();
+			$winH = $(window).height();
+
+		// 3. container 의 넓이값을 height 값에 대입한다
+		$("html").height($containerW);
+
+		// 4. 스크롤 이벤트를 사용하여 현재 스크롤한 값을 container 의 x 값에 대입하여 가로로 움직이게 한다
+		$(window).scroll(function(){
+			var _this = $(this).scrollTop();
+
+			console.log(_this);
+			$container.css({transform:"translate(" + -_this + "px , 0)"});
+		});
+
+		// 5. container 의 넓이 - 윈도우넓이 - 윈도우높이 값을 뺀 나머지의 값을 조정한다 (스크롤바포함)
+		$html.height($containerW - $winW + $winH +17+"px");
+
+		console.log($containerW);
+		console.log($winW);
+		console.log($winH);
+
+	}
+	scrollAction02();
+
+</script>
+</html>

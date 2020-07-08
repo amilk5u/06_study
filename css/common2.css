@@ -47,7 +47,6 @@ body{
 .img_wrap>div:nth-child(3){background-color: #7cc613;}
 .img_wrap>div:nth-child(4){background-color: #2272db;}
 .img_wrap>div:nth-child(5){background-color: #db4092;}
-
 .img_wrap>div.active{z-index: 9;}
 
 /*인디케이터*/

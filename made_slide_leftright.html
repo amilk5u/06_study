@@ -6,7 +6,6 @@
 	<title>슬라이더 만들기 (좌우슬라이더)</title>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<link rel="stylesheet" href="./css/common2.css">
-
 </head>
 <body>
 	<!-- wrap -->
@@ -14,11 +13,11 @@
 		<!-- 슬라이더 -->
 		<div id="slider">
 			<div class="img_wrap">
-				<div><img src="123.png" alt=""></div>
-				<div><img src="123.png" alt=""></div>
-				<div><img src="123.png" alt=""></div>
-				<div><img src="123.png" alt=""></div>
-				<div><img src="123.png" alt=""></div>
+				<div><img src="./img/123.png" alt=""></div>
+				<div><img src="./img/123.png" alt=""></div>
+				<div><img src="./img/123.png" alt=""></div>
+				<div><img src="./img/123.png" alt=""></div>
+				<div><img src="./img/123.png" alt=""></div>
 			</div>
 			<div class="navigation">
 				<div class="prev"></div>
@@ -27,11 +26,10 @@
 			<div class="indicator">
 				<div class="on"></div>
 			</div>
-		</div>hjhjhjhjhjhhjhhjhjhjh
+		</div>
 	</div>
 </body>
 <script>
-
 	// 좌우슬라이더 만들기
 	function slider(){
 
@@ -104,7 +102,6 @@
 				console.log('전 클릭보다 현재 클릭 숫자가 더 작을 때');
 				$img.eq(number).prevAll().css({left:'-100%'});
 			}
-
 			number = _index;
 
 			//인디케이터의 순번에 해당하는 이미지를 애니메이션을 사용하여 화면에 나타냄
@@ -128,10 +125,38 @@
 			// 나머지는 active 를 땐다
 			$('.img_wrap>div').removeClass('active');
 			// 순번에 해당하는 이미지에 active 을 붙임
-			허호ㅓ허호ㅓ호ㅓ호ㅓㅗㅓㅗㅓㅗㅓㅗㅓㅗㅓㅗㅓ
 			$('.img_wrap>div').eq(number).addClass('active');
 		}
 	}
+
+
+	// function locationJS(){
+	// 	$subLocation.find("button").on("mouseenter focusin",function () {
+	// 		event.preventDefault();
+	// 		var _this = $(this);
+	// 		var locationDepthH = _this.siblings(".under_depth").outerHeight();
+	// 		if(!_this.hasClass("active")){
+	// 			_this.addClass("active");
+	// 			TweenMax.to($(".location_list > li") , .3, {height: 70, ease:es_step});
+	// 			TweenMax.to($(this).parent(), .3, {height: locationDepthH + 70, ease:es_step});
+	// 		} else {
+	// 			if (!TweenMax.isTweening($(".location_list > li"))) {
+	// 				$subLocation.find("button").removeClass("active");
+	// 				TweenMax.to($(this).parent(), .3, {height: 70, onComplete:myFunction ,ease: es_step});
+	// 			}
+	// 		}
+	// 	});
+	//
+	// 	if (!TweenMax.isTweening( "              "  ))) {
+	//
+	//
+	// }
+	// function myFunction(){
+	//
+	// }
+
+
+
 	slider();
 </script>
-</html>dddddd
+</html>

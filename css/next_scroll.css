@@ -1,0 +1,7 @@
+html,body {padding:0; margin:0;}
+#wrap {width:100%; overflow:hidden; position:fixed; top:50%; transform:translate(0,-50%); background-color:#cca57c;}
+#wrap .container {width:max-content;background-color:#274c6b;}
+#wrap .container:after {content:""; display:block; clear:both;}
+#wrap .container div {float:left; width:600px; padding:0 100px; margin:0 60px;background-color:#95ccc8;}
+#wrap .container div img {width:100%;}
+
