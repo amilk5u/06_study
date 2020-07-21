@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+
+	<title>8강) HTML 과 DOM document</title>
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
+
+</head>
+<body>
+	<p id="mySpan" style="color:blue">안녕하세요.</p>
+	<p id="span1" style="color:pink" onclick="change()">클릭하세요.</p>
+
+	<!-- <input id="btn1"type="button" name="btn1" value="클릭하시오" onclick="change()"> -->
+	<!-- <label for="btn1">dsdss</label> -->
+
+	<hr>
+	<button onclick ="change1(this,'30px','pink')" type="button" name="">클릭하세요1</button>
+	<button onclick ="change1(this,'150px','red')" type="button" name="">클릭하세요1</button>
+	<div onclick ="change1(this, '500px','blue')" type="button" name="">클릭하세요1</div>
+
+	<div class="apple" onclick="change2()">
+		저는 <span>빨간 사과</span>를 좋아해서 <span>아침</span>마다 <span>한 개</span>씩 먹고 있어요.
+		운동할 때는 중간 중간에 <span>바나나</span>를 먹지요. <span>탄수화물</span> 섭취가 빨라 힘이 납니다.
+		또한 <span>달콤한 향기</span>를 품은 <span>체리</span>와 여름냄새 물씬 나는 <span>자두</span>를 좋아합니다.
+	</div>
+	<amp-img src="" alt="">
+</body>
+<script>
+
+
+	// body 위에 스크립트 짤 때 widow.onload 감싸서 사용한다.($document).ready 사용하는것이 빠르고, 오류나지 않는다.
+	window.onload = function(){
+		var span = document.getElementById('mySpan');
+		var style = window.getComputedStyle(span);
+		var color = span.style.color;
+
+		span.style.color = 'pink';
+		span.style.border = '1px solid black';
+		span.style.color = 'blue';
+
+
+		// console.log(span);
+		// console.log(style);
+		// console.log(color);
+	}
+
+	// 자바스크립트로 객체 찾아 스타일주기
+	function change(){
+		var span1 = document.getElementById('span1');
+
+		span1.style.color = '#ccc';
+		span1.style.fontSize = '5em';
+		span1.style.display = 'inline';
+		span1.style.cssText = 'background-color:#17bcb2; color:#ccc; font-size:30px; position:absolute; width:200px;';
+		span1.style.border = '1px solid black';
+		span1.style.margin = '150px';
+
+		console.log(span1.innerHTML);
+
+		span1.innerHTML = '안녕';
+		console.log(span1.innerHTML);
+	}
+	function change1(obj, size, color){
+		obj.style.color = 'color';
+		obj.style.fontSize = 'size';
+	}
+
+	// class apple div 클릭시 모든 span의 컬러가 red가 된다.
+	function change2 (){
+		var spanArray = document.getElementsByTagName('span');
+		console.log(spanArray);
+
+		for(var i=0; i<spanArray.length; i++){
+			var span = spanArray[i];
+			span.style.color = 'red';
+			span.style.fontSize = '30px';
+		}
+		// body 의 색상변경
+		document.body.style.backgroundColor = '#eee';
+	}
+
+	// dom 통해 html 파일 마지막에 객체생성하기
+	function documentwrite_ln(){
+		// document.write
+		document.write('<h3>민주입니다.</h3>');
+		document.write(2+3+'123');
+		document.write('<h3>동물원에 갑시다</h3>');
+		document.write('<p style="color:red">날씨가 슬슬\n');
+		document.write('추워집니다.</p>');
+		document.write(2+6);
+		document.write('명입니다.<br>');
+
+		// document.writeln
+		document.writeln('5\n');
+		document.writeln('명입니다.');
+	}
+	documentwrite_ln();
+
+	// DOM 객체 생성
+	function Domon(){
+		var newDiv = document.createElement('div');
+		newDiv.innerHTML = '새로생성된 객체 입니다.';
+		document.body.appendChild(newDiv);
+	}
+	Domon();
+
+	// DOM 객체의 삭제
+	function Domoff() {
+		var myDiv = document.getElementsByTagName('h3');
+		var parent = myDiv.parentElement;
+		console.log(myDiv);
+		console.log(myDiv[1]);
+		console.log(parent);
+		// document.body.removeChild(myDiv[0]);
+
+		console.log(myDiv);
+		// document.body.removeChild(myDiv[1]);
+	}
+	Domoff();
+
+	// 제이쿼리 js 파일이 없으면 제이쿼리 작동이 안되고 자바스크립트로 제어해야한다.
+	function color_(){
+		// $('h3').css({backgroundColor:'red'});
+		var h3_=document.getElementsByTagName('h3')[0];
+		h3_.style.color='#17bcb2';
+		console.log(h3_);
+	}
+	color_();
+
+
+	// 매개변수를 이용한 함수 계산
+	function sum(a,b){
+		var c = a+b;
+		console.log(c);
+	}
+	sum(5,6);
+	sum(50,150);
+	sum(5,2);
+	sum(0,0);
+
+	function sum(a,b){
+		var c = a+b;
+		console.log(c);
+		return c;
+	}
+
+
+	var total = sum1(10+20);
+	function sum1(a,b){
+		var c = a+b;
+		console.log('ddd');
+		console.log(c);
+		return;
+		total();
+	}
+	sum1(50,50);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
