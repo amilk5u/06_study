@@ -15,9 +15,6 @@
 			<div class="img_wrap">
 				<div><img src="./img/123.png" alt=""></div>
 				<div><img src="./img/123.png" alt=""></div>
-				<div><img src="./img/123.png" alt=""></div>
-				<div><img src="./img/123.png" alt=""></div>
-				<div><img src="./img/123.png" alt=""></div>
 			</div>
 			<div class="navigation">
 				<div class="prev"></div>
@@ -49,18 +46,19 @@
 		}
 
 		// 이미지의 갯수와 동일하게 인디케이터를 생성
-		for( var i=0; i<img_length-1; i++ ){
+		for( var i=0; i < img_length -1; i++ ){
 			$('.indicator').append('<div></div>');
 		}
+
 
 		// next를 클릭했을 때 실행
 		$next.click(function(){
 
 			//왼쪽으로 보내는 이미지
 			$img.eq(number).stop().animate({left:'-100%'});
-
 			number++;
 			number = number % img_length;
+			console.log(number % img_length);
 
 			//갖고오는 이미지(갖고오는이미지는 left 100% 으로 초기화를 시켜준다)
 			$img.eq(number).css({left:'100%'}).stop().animate({left:'0'});
@@ -76,6 +74,7 @@
 
 			number--;
 			number = number % img_length;
+			console.log(number % img_length);
 
 			//이미지 모두 왼쪽으로 보냄(초기화)
 			// $img.css({left:'-100%'});
