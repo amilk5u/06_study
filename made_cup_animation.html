@@ -70,21 +70,22 @@
         var _animationTumRandom = Math.floor(Math.random() * 2 + 1);
 
         //tweenMax 애니메이션
-        TweenMax.to($bgWrap, 20, {
+        TweenMax.to($bgWrap, 5, {
             y: -_bgWrapH, repeat: -1, ease: Linear.easeNone
         });
 
         // box 를 호버했을 때 .4초동안 1.2 확대
-        $box.mouseenter(function () {
+/*        $box.mouseenter(function () {
             TweenMax.to($(this), .4, {scale: 1.2});
         });
         // box 를 아웃했을 때 .4초동안 원상태로 복귀
         $box.mouseleave(function () {
             TweenMax.to($(this), .4, {scale: 1});
-        });
+        });*/
 
 
 
+/*
         //애니메이션 박스 랜덤 - 0부터 .box의 갯수 사이의 랜덤값
         var _boxNumRandom = Math.floor(Math.random() * _boxLength / 2);
         console.log("_boxNumRandom : "+_boxNumRandom);
@@ -92,6 +93,7 @@
         //애니메이션 텀 랜덤 - 1초부터~2초
         _animationTumRandom = Math.floor(Math.random() * 2 + 1);
         console.log("_animationTumRandom : "+_animationTumRandom);
+*/
 
 
         //칼라랜덤

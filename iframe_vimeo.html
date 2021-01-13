@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>비메오</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./js/TweenMax.min.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <iframe src="https://player.vimeo.com/video/76979871?autoplay=1&loop=1&autopause=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/76979871?autoplay=1&loop=1&autopause=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/145212?autoplay=1&loop=1&autopause=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/777777?autoplay=1&loop=1&autopause=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <button class="button">버튼</button>
+    </div>
+<script>
+
+    var iframe = $('iframe');
+    var player = new Vimeo.Player(iframe);
+
+    $("button").on("click",function(){
+        player.pause();
+    });
+</script>
+</body>
+</html>

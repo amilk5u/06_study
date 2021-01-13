@@ -1,0 +1,15 @@
+#wrap {
+}
+#wrap .donate_btn {
+   width:100px; height:100px; margin:0 auto; position:fixed; bottom:50px; right:50px; background-color:#222;
+   border-radius:100px; color:#fff; font-size:17px; cursor:pointer;
+}
+
+
+#wrap .popup_wrap {
+   width:500px; height:350px;
+   position:fixed; left:50%; top:50%;
+   transform:translate(-50%, -50%);
+   background-color:#eee;
+}
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>새마을중앙운동회 후원하기 팝업창</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/saemaeul_donate.css">
+</head>
+<body>
+	<div id="wrap">
+		<button type="button" class="donate_btn">
+			후원하기
+		</button>
+		<div class="popup_wrap">
+			<form action="">
+				<div class="input_wrap">
+					<div class="name_box">
+						<strong>
+							이름을 입력하세요.
+						</strong>
+						<input type="text" name="" id="">
+					</div>
+					<div class="phone_number">
+						<strong>
+							전화번호를 입력하세요.
+						</strong>
+						<input type="text" name="" id="">
+					</div>
+					<button type="button" class="submit_btn">확인</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--javascript-->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script>
+
+		/*
+		* 1. 후원하기 버튼 클릭시 popup 창 실행 (이름입력, 전화번호 입력 후 확인버튼 클릭)
+		* 2.
+		* 3.
+		*
+		*
+		* */
+
+
+		// 1. 후원하기 버튼 클릭시 popup 창 실행
+		$(".donate_btn").on("click,",function(){
+
+		});
+
+		// 확인 버튼 클릭시 팝업창 실행
+		$(".submit_btn").on("click",function(){
+			popup();
+		});
+
+
+
+
+
+
+
+
+		// 팝업창 실행문
+		function popup() {
+			var _url = "https://cs.smartraiser.co.kr/api/saemaul.or.kr/gift/gift";
+			var _name = "ddd";
+			var _option = "width = 500, height = 500, top = 100, left = 200, location = no";
+
+			window.open(_url, _name, _option);
+		}
+
+
+
+	</script>
+</body>
+</html>

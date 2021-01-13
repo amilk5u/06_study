@@ -49,44 +49,43 @@
 	});
 
 
-	//
-	// var scrollEvent = false;
-	// var count = 0;
-	//
-	// $('html,body').on('mousewheel', function(e) {
-	//
-	// 	e.preventDefault();
-	// 	var scroll_event = e.originalEvent.wheelDelta;
-	// 	var wrap_height = $('#wrap').height;
-	//
-	// 	if( scroll_event > 1 && scrollEvent == false && count >=1 ){
-	// 		console.log(count);
-	// 		scrollEvent = true;
-	// 		count--;
-	// 		$('html,body').stop().animate({scrollTop:sb*count},{
-	// 			duration:300, complete:function(){
-	// 				scrollEvent = false;
-	// 			}
-	// 		});
-	// 	}else if( scroll_event < 1 && scrollEvent == false && count < 3 ){
-	// 		console.log(count);
-	// 		scrollEvent = true;
-	// 		count++;
-	// 		$('html,body').stop().animate({ scrollTop: sb*count },
-	// 			{duration:300, complete:function(){
-	// 				scrollEvent = false;
-	// 			}
-	// 		});
-	// 	}
 
+	var scrollEvent = false;
+	var count = 0;
 
-  //   if (e.originalEvent.wheelDelta >= 0) {
-  //       console.log('스크롤 올림');
-  //   } else {
-  //       console.log('스크롤 내림');
-  //   }
-	// 	console.log(e.originalEvent.wheelDelta);
-	// });
+	$('html,body').on('mousewheel', function(e) {
+
+		e.preventDefault();
+		var scroll_event = e.originalEvent.wheelDelta;
+		var wrap_height = $('#wrap').height;
+
+		if( scroll_event > 1 && scrollEvent == false && count >=1 ){
+			console.log(count);
+			scrollEvent = true;
+			count--;
+			$('html,body').stop().animate({scrollTop:sb*count},{
+				duration:300, complete:function(){
+					scrollEvent = false;
+				}
+			});
+		}else if( scroll_event < 1 && scrollEvent == false && count < 3 ){
+			console.log(count);
+			scrollEvent = true;
+			count++;
+			$('html,body').stop().animate({ scrollTop: sb*count },
+				{duration:300, complete:function(){
+					scrollEvent = false;
+				}
+			});
+		}
+
+    if (e.originalEvent.wheelDelta >= 0) {
+        console.log('스크롤 올림');
+    } else {
+        console.log('스크롤 내림');
+    }
+		console.log(e.originalEvent.wheelDelta);
+	});
 
 
 

@@ -5,7 +5,6 @@
    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
    <title>이메일 유효성 검사</title>
    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-
    <style>
       html, body { margin:0; border:0; padding:0; }
       .email_wrap { height:500px; position:fixed; right:10px; top:10px; }
@@ -69,56 +68,55 @@
    </tbody>
 </table>
 <script>
+   // 정보
+   var $sheet0 = $(".sheet0"),
+      $sheet0tr = $sheet0.find("tr"),
+      //아이디
+      $sheet0id = $sheet0tr.find(".column0"),
+      //이메일
+      $sheet0em = $sheet0tr.find(".column1"),
+      $sheet0td = $sheet0tr.children("td"),
+      // 길이
+      $sheet0trLength = $sheet0tr.length,
+      $sheet0tdLength = $sheet0td.length;
 
-    // 정보
-    var $sheet0 = $(".sheet0"),
-        $sheet0tr = $sheet0.find("tr"),
-        //아이디
-        $sheet0id = $sheet0tr.find(".column0"),
-        //이메일
-        $sheet0em = $sheet0tr.find(".column1"),
-        $sheet0td = $sheet0tr.children("td"),
-        // 길이
-        $sheet0trLength = $sheet0tr.length,
-        $sheet0tdLength = $sheet0td.length;
+   // 탈락 된 div
+   var $emailWrap = $(".email_wrap"),
+      $emailWraptr = $emailWrap.find("tr"),
+      //아이디
+      $emailWrapth = $emailWrap.find("th"),
+      //이메일
+      $emailWraptd = $emailWrap.find("td");
 
-    // 탈락 된 div
-    var $emailWrap = $(".email_wrap"),
-        $emailWraptr = $emailWrap.find("tr"),
-        //아이디
-        $emailWrapth = $emailWrap.find("th"),
-        //이메일
-        $emailWraptd = $emailWrap.find("td");
+   var email = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
-    var email = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+   // tr 반복문
+   for (var i = 0; i < $sheet0trLength; i++) {
 
-    // tr 반복문
-    for (var i = 0; i < $sheet0trLength; i++) {
+      //시트에 있는 아이디값
+      // $sheet0tr.eq(i).find(".column0").text();
+      //시트에 있는 이메일값
+      // $sheet0tr.eq(i).find(".column1").text();
 
-        //시트에 있는 아이디값
-        // $sheet0tr.eq(i).find(".column0").text();
-        //시트에 있는 이메일값
-        // $sheet0tr.eq(i).find(".column1").text();
+      //탈락div 아이디값 삽입
+      // $emailWraptr.eq(i).find("th").text($sheet0tr.eq(i).find(".column0").text());
+      //탈락div 이메일 삽입
+      // $emailWraptr.eq(i).find("td").text($sheet0tr.eq(i).find(".column1").text());
 
-        //탈락div 아이디값 삽입
-		// $emailWraptr.eq(i).find("th").text($sheet0tr.eq(i).find(".column0").text());
-		//탈락div 이메일 삽입
-		// $emailWraptr.eq(i).find("td").text($sheet0tr.eq(i).find(".column1").text());
+      for (var n = 0; n < $sheet0tr.eq(0).find("td").length; n++) {
+         var txt = $sheet0tr.eq(i).find("td").eq(n).text();
+         
+         //이메일 값
+         if (n === 1) {
+            //이메일 유효성 판단 조건
+            //만약에 txt(td의 내용) 가 성립되지 않을때..
+            if (!(email.test(txt))) {
+               console.log("아이디 : " + $sheet0tr.eq(i).find("td").eq(0).text() + ", 이메일 : " + txt);
 
-		for(var n = 0; n < $sheet0tr.eq(0).find("td").length; n ++){
-			var txt= $sheet0tr.eq(i).find("td").eq(n).text();
-
-			//이메일 값
-			if(n === 1){
-				//이메일 유효성 판단 조건
-				//만약에 txt(td의 내용) 가 성립되지 않을때..
-				if ( !(email.test(txt)) ){
-					console.log("아이디 : " + $sheet0tr.eq(i).find("td").eq(0).text() + ", 이메일 : " + txt );
-
-				}
-			}
-		}
-    }
+            }
+         }
+      }
+   }
 </script>
 </body>
 </html>
