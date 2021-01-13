@@ -12,21 +12,22 @@
 	<div id="wrap">
 		<!-- 슬라이더 -->
 		<div id="slider">
-			<div class="img_wrap">
-				<div>1<img src="" alt=""></div>
-				<div>2<img src="" alt=""></div>
-				<div>3<img src="" alt=""></div>
-				<div>4<img src="" alt=""></div>
-				<div>5<img src="" alt=""></div>
-				<div>6<img src="" alt=""></div>
-				<div>7<img src="" alt=""></div>
-			</div>
-			<div class="navigation">
-				<div class="prev"></div>
-				<div class="next"></div>
-			</div>
-			<div class="indicator">
-				<div class="on"></div>
+			<div class="img_container">
+				<div class="img_wrap">
+					<div><img src="img/iu.jpg" alt=""></div>
+					<div><img src="img/iu.jpg" alt=""></div>
+					<div><img src="img/iu.jpg" alt=""></div>
+					<div><img src="img/iu.jpg" alt=""></div>
+					<div><img src="img/iu.jpg" alt=""></div>
+					<div><img src="img/iu.jpg" alt=""></div>
+				</div>
+				<div class="navigation">
+					<div class="prev"></div>
+					<div class="next"></div>
+				</div>
+				<div class="indicator">
+					<div class="on"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -34,11 +35,10 @@
 <script>
 	// 좌우슬라이더 만들기
 	function slider(){
-
 		// 순번 생성
 		var number = 0;
-		//선택자 변수에 담기
-		var $img = $('.img_wrap>div');
+        //선택자 변수에 담기
+		var $img = $('.img_wrap > div');
 		var $prev = $('.prev');
 		var $next = $('.next');// 이미지의 갯수
 		var img_length = $('.img_wrap>div').length;
@@ -54,15 +54,12 @@
 			$('.indicator').append('<div></div>');
 		}
 
-
 		// next를 클릭했을 때 실행
-		$next.click(function(){
-
+		$next.on("click",function(){
 			//왼쪽으로 보내는 이미지
 			$img.eq(number).stop().animate({left:'-100%'});
 			number++;
 			number = number % img_length;
-			console.log(number % img_length);
 
 			//갖고오는 이미지(갖고오는이미지는 left 100% 으로 초기화를 시켜준다)
 			$img.eq(number).css({left:'100%'}).stop().animate({left:'0'});
@@ -70,15 +67,12 @@
 			play();
 		});
 
-
 		//prev를 클릭했을 때 실행
-		$prev.click(function(){
+		$prev.on("click",function(){
 
 			$img.eq(number).css({left:'0'}).stop().animate({left:'100%'});
-
 			number--;
 			number = number % img_length;
-			console.log(number % img_length);
 
 			//이미지 모두 왼쪽으로 보냄(초기화)
 			// $img.css({left:'-100%'});
@@ -90,7 +84,7 @@
 		});
 
 		// 인디케이터를 클릭했을 때 실행
-		$('.indicator > div').click(function(){
+		$('.indicator > div').on("click",function(){
 
 			var _this = $(this);
 			var _index = _this.index();
